@@ -26,7 +26,12 @@ type Alphabet =
   | "y"
   | "z";
 
-type GermanUppercaseStrings = any;
+// https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html
+// Statt Capitalize geht hier auch Uppercase
+type GermanUppercaseStrings = `${Capitalize<Alphabet>}${string}`;
+
+// das hier reicht nicht aus
+// type GermanUppercaseStrings = `${Capitalize<string>}`;
 
 // komplexe Lösung möglich, aber nicht notwendig
 
