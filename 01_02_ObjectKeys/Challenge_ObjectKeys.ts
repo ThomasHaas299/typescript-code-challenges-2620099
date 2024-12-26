@@ -9,8 +9,27 @@ const personExtension = {
 };
 
 type WantedType = {
-  name: string;
-  hobbies?: string[];
+  name: typeof personDefinition.name;
+  hobbies?: typeof personExtension.hobbies;
 };
+
+const newObject:WantedType = {
+  name:"Boris"
+}
+
+type WantedType1 = Pick<typeof personDefinition, "name"> &
+Partial<Pick<typeof personExtension, "hobbies">>
+
+const newObject1: WantedType1 = {
+  name:"Jan"
+}
+const newObject2: WantedType1 = {
+  name:"Jan",
+  hobbies: ["tauchen", "campen"]
+}
+const newObject3: WantedType1 = {
+  name:"Falsch",
+  age:23
+}
 
 export {};
