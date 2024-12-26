@@ -17,6 +17,9 @@ const newObject:WantedType = {
   name:"Boris"
 }
 
+// Utility-Types: Pick
+// https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys
+
 type WantedType1 = Pick<typeof personDefinition, "name"> &
 Partial<Pick<typeof personExtension, "hobbies">>
 
